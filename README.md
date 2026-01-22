@@ -25,6 +25,11 @@ It’s inspired by tools like **Scratch** and **Blockly**, but with a stronger f
 
 ---
 
+## 🌐 Live Demo
+
+- 👉 Live Demo: https://ashishds-09.github.io/APT_CODER_ASSIGN/
+
+
 ## 🛠️ Features
 
 - 🔲 Full-screen Blockly workspace  
