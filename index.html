@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Blockly Demo</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css" />
+
+
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+
+
+</head>
+
+<body>
+
+ <!-- Header -->
+<header class="header">
+  <div class="header-content">
+    <h1 class="title">Code by Blocks</h1>
+    <p class="subtitle">Build logic visually • Export JavaScript • Execute instantly</p>
+  </div>
+</header>
+
+  <!-- main content -->
+  <div class="main">
+
+    <!--blockly-->
+    <div id="blocklyDiv"></div>
+
+    <!-- right -->
+    <div class="right-panel">
+
+      <h3>Generated JavaScript</h3>
+      <pre id="code">//Generated code will be displayed here
+</pre>
+
+      <h3>Output</h3>
+      <div id="output">Click “Run Code” to view the output here
+      </div>
+
+      <div class="buttons">
+        <button class="gen" onclick="generateCode()">Generate</button>
+        <button class="run" onclick="runCode()">Run</button>
+        <button class="clear" onclick="clearAll()">Clear</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- scripts  -->
+  <script src="blocks.js"></script>
+  <script src="generator.js"></script>
+  <script src="App.js"></script>
+
+</body>
+
+</html>
