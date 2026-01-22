@@ -49,3 +49,53 @@ Blockly.JavaScript.forBlock['print'] = function (block) {
 
   return `output(${text});\n`;
 };
+
+// decision label
+Blockly.JavaScript.forBlock['decision_label'] = function (block) {
+  const label = block.getFieldValue('LABEL');
+  return `output("Decision: ${label}");\n`;
+};
+
+// user score
+Blockly.JavaScript.forBlock['user_score'] = function (block) {
+  const score = block.getFieldValue('SCORE');
+  return [score, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+// result message
+Blockly.JavaScript.forBlock['result_message'] = function (block) {
+  const msg = block.getFieldValue('MSG');
+  return `output("${msg}");\n`;
+};
+// grade block
+Blockly.JavaScript.forBlock['grade_block'] = function (block) {
+  const score =
+    Blockly.JavaScript.valueToCode(block, 'SCORE', Blockly.JavaScript.ORDER_NONE) || 0;
+
+  const code = `
+(${score} >= 75 ? "Grade A" :
+ ${score} >= 60 ? "Grade B" :
+ ${score} >= 40 ? "Grade C" :
+ "Fail")
+`;
+
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript.forBlock['attendance_status'] = function (block) {
+  const status = block.getFieldValue('STATUS');
+  return [status === "good", Blockly.JavaScript.ORDER_ATOMIC];
+};
+Blockly.JavaScript.forBlock['eligibility_check'] = function (block) {
+  const scoreOk =
+    Blockly.JavaScript.valueToCode(block, 'SCORE_OK', Blockly.JavaScript.ORDER_ATOMIC) || false;
+  const attOk =
+    Blockly.JavaScript.valueToCode(block, 'ATT_OK', Blockly.JavaScript.ORDER_ATOMIC) || false;
+
+  return [`(${scoreOk} && ${attOk})`, Blockly.JavaScript.ORDER_ATOMIC];
+};
+Blockly.JavaScript.forBlock['teacher_remark'] = function (block) {
+  const remark = block.getFieldValue('REMARK');
+  return `output("Teacher Remark: ${remark}");\n`;
+};
+
